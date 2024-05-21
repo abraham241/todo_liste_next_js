@@ -2,24 +2,23 @@ import Navbar from "@/components/Navbar";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [tache, setTach] = useState("")
+  const [tache, setTache] = useState("")
   const [tab, setTab] =useState([])
 
   const handleChange = (event) =>{
-    setTach(event.target.value)
+    setTache(event.target.value)
   }
 
   const addValue = ()=>{
     setTab(prev =>{
       return [...prev, {id: prev.length+1, task:tache}]
     })
-    setTach("")
+    setTache("")
   }
 
   const deleteTask= (id) =>{
-    const newTab = tab.filter(item)(
-
-    )
+    const newTab = tab.filter((item) => item.id != id)
+    setTab(newTab)
 
   }
 
@@ -53,12 +52,12 @@ export default function Home() {
             </button>)} 
           </div>
           <h3 className="text-3xl font-bold py-5">Liste de toutes le taches</h3>
-          <ul className="w-96">
+          <ul className="">
             {tab.map((item) =>{
               return <li className="flex justify-between gap-10 py-1" key={item.id}>{item.task}
-              <div >
-                <button className="bg-red-500 h-8 w-24 text-white font-bold rounded" onClick={()=> deleteTask(item.id)}>Suprimer</button> 
-              </div>
+                  <div >
+                    <button className="bg-red-500 h-8 w-24 text-white font-bold rounded" onClick={()=> deleteTask(item.id)}>Suprimer</button> 
+                  </div>
               </li> 
               })}
           </ul>
