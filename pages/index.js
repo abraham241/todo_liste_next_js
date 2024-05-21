@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="px-20">
-        <h1 className="text-2xl md:text-4xl font-bold py-5 ">
+      <div className="px-10">
+        <h1 className="text-xl md:text-4xl lg:text-4xl font-bold py-5 ">
           Mbolo Samba <br /> nous sommes sur ma Todo liste faite en Next JS
         </h1>
         <div className="flex flex-col py-10 bg-slate-300  p-5 rounded">
